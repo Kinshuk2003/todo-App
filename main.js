@@ -104,13 +104,13 @@ function executeFilterAction(event) {
     if (filterValue === "All") {
         appendTodoInHtml(todos); // Show all todos if "All" is selected
         return;
-    }   else if (filterValue === "Active") {
-        const activeTodos = todos.filter(todo =>!todo.isCompleted);
-        appendTodoInHtml(activeTodos); // Show active todos if "Active" is selected
-        return;
     }   else if (filterValue === "Pending") {
-        const pendingTodos = todos.filter(todo => todo.isCompleted);
+        const pendingTodos = todos.filter(todo =>!todo.isCompleted);
         appendTodoInHtml(pendingTodos); // Show pending todos if "Pending" is selected
+        return;
+    }   else if (filterValue === "Completed") {
+        const completedTodos = todos.filter(todo => todo.isCompleted);
+        appendTodoInHtml(completedTodos); // Show pending todos if "Pending" is selected
         return;
     }
 
@@ -124,5 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterbtns = document.getElementsByClassName("filterbtn");
     for(const btn of filterbtns) {
         btn.addEventListener("click", executeFilterAction);
-    }   
+    }
+    //Add to do If user Clicks Enter button in the input field
+    document.getElementById("todoInput").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            addTodo();
+        }
+    });
+ 
 });
