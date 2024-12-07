@@ -1,6 +1,7 @@
 :root {
     --body-background: #f4f4f9;
     --btn-primary: #5cabff;
+    --btn-secondary: #4786c9;
 }
 
 * {
@@ -43,6 +44,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: var(--btn-secondary);
+}
+
 /* Styling for individual todo containers */
 .todo-container {
     margin: 10px auto;
@@ -53,6 +58,23 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
 }
+/* 
+#todo-list-btn {
+    margin: 10px;
+    padding: 5px;
+    background-color: var(--btn-primary);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+
+} */
+
+.filter {
+    margin: 5px;
+    padding: 5px;
+}
+
 
 ul {
     list-style-type: none;
