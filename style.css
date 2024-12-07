@@ -1,11 +1,18 @@
 :root {
     --body-background: #f4f4f9;
-    --btn-primary: #5cabff;
-    --btn-secondary: #4786c9;
+    --primary-color: #5cabff;
+    --primary-hover: #4786c9;
+    --completed-color: #c8e6c9;
+    --delete-color: #ff6b6b;
+    --delete-hover: #e63c3c;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 * {
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
 }
 
 body {
@@ -15,74 +22,106 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color: var(--card-background);
     max-width: 600px;
-    margin: 50px auto; /* Added 50px margin-top */
-    box-shadow: 0 0  10px rgba(0, 0 , 0, 1);
+    margin: 50px auto;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 #todoInput {
-    width: 75%;
-    padding: 10px;
+    width: 70%;
+    padding: 12px;
     margin-right: 10px;
     border: 2px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: var(--btn-primary);
+    padding: 12px 20px;
+    background-color: var(--primary-color);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
+    font-size: 1rem;
     cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 button:hover {
-    background-color: var(--btn-secondary);
+    background-color: var(--primary-hover);
 }
-
-/* Styling for individual todo containers */
-.todo-container {
-    margin: 10px auto;
-    padding: 15px;
-    max-width: 600px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-}
-/* 
-#todo-list-btn {
-    margin: 10px;
-    padding: 5px;
-    background-color: var(--btn-primary);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-
-} */
 
 .filter {
-    margin: 5px;
-    padding: 5px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
+.filterbtn {
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.filterbtn:hover {
+    background-color: var(--primary-hover);
+}
 
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
 li {
-    margin: 5px 0;
+    width: 100%; /* Make the todo items take full width of the #todoListsContainer */
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    font-size: 1rem;
+}
+
+li.completed {
+    background-color: var(--completed-color);
+    text-decoration: line-through;
+    color: #555;
+}
+
+li button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    background-color: var(--delete-color);
+}
+
+li button.complete-btn {
+    background-color: var(--primary-color);
+}
+
+li button.complete-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+li button:hover {
+    background-color: var(--delete-hover);
+}
+
+#todoListsContainer {
+    width: 100%;
+    max-width: 600px; /* Match the max-width of the container */
+    margin: 0 auto;  /* Center-align the todo list container */
 }
